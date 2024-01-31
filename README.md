@@ -5,5 +5,6 @@
 
 ## Installation
 - Clone this repository
+- Copy ``.env.example`` and rename to ``.env``
 - Run ``npm i``
 - Run ``npm run dev``
