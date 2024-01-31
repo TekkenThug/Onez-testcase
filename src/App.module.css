@@ -1,0 +1,28 @@
+.App {
+    height: calc(100dvh - 20px * 2);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    padding: 20px;
+}
+
+.top {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+.topTitle {
+    font-size: 25px;
+    line-height: 29.3px;
+    margin-bottom: 10px;
+    color: var(--color-blue-1);
+}
+
+.topSubtitle {
+    color: var(--color-grey-2);
+    max-width: 320px;
+}
