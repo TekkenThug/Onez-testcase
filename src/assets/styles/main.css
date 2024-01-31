@@ -1,0 +1,48 @@
+:root {
+    --color-blue-1: #1F2261;
+    --color-blue-2: #26278D;
+    --color-grey-1: #EFEFEF;
+    --color-grey-2: #808080;
+    --color-grey-3: #9B9B9B;
+    --color-grey-4: #3C3C3C;
+    --color-grey-5: #A1A1A1;
+    --color-grey-6: #989898;
+    --color-grey-7: #E7E7EE;
+    --color-white-1: #FFFFFF;
+    --color-white-2: #F6F6F6;
+}
+
+body {
+    font-family: "Roboto", "Arial", sans-serif;
+    font-size: 16px;
+    line-height: 18.75px;
+    font-weight: 400;
+    font-style: normal;
+    background-color: var(--color-white-2);
+    background-repeat: no-repeat;
+    background-size: 100% 50%;
+    background-position: right 0 top 0;
+    background-image: url('data:image/svg+xml,<svg width="360" height="358" viewBox="0 0 360 358" fill="none" xmlns="http://www.w3.org/2000/svg"><circle cx="73.5" cy="-17.5" r="375.5" fill="url(%23paint0_radial_302_32)"/><defs><radialGradient id="paint0_radial_302_32" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(73.5 -17.5) rotate(90) scale(375.5)"><stop stop-color="%23EAEAFE"/><stop offset="1" stop-color="%23DDF6F3" stop-opacity="0"/></radialGradient></defs></svg>');
+}
+
+* {
+    box-sizing: border-box;
+}
+
+*:before,
+*:after {
+    box-sizing: border-box;
+}
+
+button {
+    border: none;
+}
+
+h1, h2, h3, h4, h5, h6, p {
+    margin: 0;
+}
+
+input {
+    border: none;
+    outline: none;
+}
