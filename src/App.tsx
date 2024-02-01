@@ -3,7 +3,7 @@ import ConverterWidget from "./components/converter-widget/ConverterWidget.tsx";
 import styles from "./App.module.css"
 import {useEffect} from "react";
 import {useDispatch, useSelector} from "react-redux";
-import {setCurrencies} from "@/services/currency.ts";
+import {setCurrencies} from "@/stores/currency.ts";
 import {RootState} from "@/store.ts";
 
 function App() {
@@ -11,7 +11,7 @@ function App() {
 	const dispatch = useDispatch();
 	const getCurrentCurrencies = async () => {
 		try {
-			const data = await fetch("https://currency-exchange.p.rapidapi.com/listquotes", {
+			const data: string[] = await fetch("https://currency-exchange.p.rapidapi.com/listquotes", {
 				headers: {
 					"X-RapidAPI-Key": import.meta.env.VITE_API_KEY_CURRENCIES,
 					"X-RapidAPI-Host": "currency-exchange.p.rapidapi.com"
