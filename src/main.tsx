@@ -2,7 +2,7 @@ import React from 'react'
 import ReactDOM from 'react-dom/client'
 
 import { Provider } from "react-redux";
-import { store } from "@/store.ts";
+import { store } from "@/stores";
 
 import App from './App.tsx'
 import "normalize.css"

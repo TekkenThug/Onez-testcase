@@ -1,7 +1,7 @@
 import styles from "./ConverterWidget.module.css"
 import Arrows from "@/assets/svg/arrow-swap.svg"
 import { useSelector } from "react-redux";
-import { RootState } from "@/store.ts";
+import { RootState } from "@/stores";
 import {useEffect, useState, useRef} from "react";
 import CurrencyFlag from "react-currency-flags";
 import Loader from "@/assets/svg/loader.svg";
