@@ -36,8 +36,15 @@ const ConverterWidget = () => {
 	const [isLoading, setIsLoading] = useState(false);
 	const [isSwitched, setIsSwitched] = useState(false);
 	const [activeDropdown, setDropdown] = useState<"main" | "converted" | null>(null);
+
+	const [error, setError] = useState("")
+	const validateInput = () => {
+		// Some logic to validation
+		setError("");
+	}
 	const fetchConverted = async () => {
-		if (!convertedCurrency) return;
+		validateInput();
+		if (!convertedCurrency || error) return;
 
 		try {
 			setIsLoading(true);
@@ -106,7 +113,9 @@ const ConverterWidget = () => {
 							}
 						</div>
 
-						<div className={styles.inputWrapper}>
+						<div className={`${styles.inputWrapper} ${error && styles.inputWrapperWithError}`}>
+							<span className={styles.inputError}>{ error }</span>
+
 							<input
 								value={initialValue}
 								className={styles.input}

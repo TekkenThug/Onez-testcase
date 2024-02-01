@@ -63,12 +63,26 @@
 
 .inputWrapper {
     display: flex;
+    position: relative;
     align-items: center;
     width: calc(50% - 16px);
     background-color: var(--color-grey-1);
     border-radius: 7px;
     padding: 11px 14px;
     height: 47px;
+    border: 1px solid transparent;
+}
+
+.inputWrapperWithError {
+    border-color: red;
+}
+
+.inputError {
+    position: absolute;
+    color: red;
+    right: 0;
+    top: 0;
+    transform: translateY(-100%);
 }
 
 .input {
