@@ -48,7 +48,15 @@ const ConverterWidget = () => {
 
         try {
             setIsLoading(true);
-            const url = `https://api.getgeoapi.com/v2/currency/convert?api_key=${import.meta.env.VITE_API_KEY_EXCHANGE}&from=${mainCurrency}&to=${convertedCurrency}&amount=${initialValue}&format=json`;
+
+            const options = new URLSearchParams({
+                api_key: import.meta.env.VITE_API_KEY_EXCHANGE,
+                from: mainCurrency,
+                to: convertedCurrency,
+                amount: String(initialValue),
+                format: "json"
+            });
+            const url = `https://api.getgeoapi.com/v2/currency/convert?${options}`;
             const data: APIResponse = await fetch(url).then(res => res.json());
 
             setConverted(Number(data.rates[convertedCurrency].rate_for_amount));
@@ -107,8 +115,12 @@ const ConverterWidget = () => {
                             { activeDropdown === "main" &&
                                 <Dropdown
                                     currencies={ currencies.filter(item => item !== mainCurrency) }
-                                    onClick={ (item) => item === convertedCurrency ? changeCurrencies() : setMainCurrency(item) }
-                                    onClickOutside={ (event) => closeDropdown((firstSelect.current as HTMLDivElement), (event.target as Node)) }
+                                    onClick={ (item) => {
+                                        item === convertedCurrency ? changeCurrencies() : setMainCurrency(item);
+                                    } }
+                                    onClickOutside={ (event) => {
+                                        closeDropdown((firstSelect.current as HTMLDivElement), (event.target as Node));
+                                    } }
                                 />
                             }
                         </div>
@@ -156,8 +168,12 @@ const ConverterWidget = () => {
                             { activeDropdown === "converted" &&
                                 <Dropdown
                                     currencies={ currencies.filter(item => item !== convertedCurrency) }
-                                    onClick={ (item) => item === mainCurrency ? changeCurrencies() : setConvertedCurrency(item) }
-                                    onClickOutside={ (event) => closeDropdown((secondSelect.current as HTMLDivElement), (event.target as Node)) }
+                                    onClick={ (item) => {
+                                        item === mainCurrency ? changeCurrencies() : setConvertedCurrency(item);
+                                    } }
+                                    onClickOutside={ (event) => {
+                                        closeDropdown((secondSelect.current as HTMLDivElement), (event.target as Node));
+                                    } }
                                 />
                             }
                         </div>
