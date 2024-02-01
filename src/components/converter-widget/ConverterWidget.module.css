@@ -105,9 +105,6 @@
 
 .loader {
     margin-left: auto;
-    width: 25px;
-    height: 25px;
-    animation: common-spin 2s linear infinite;
 }
 
 .swapContainer {
@@ -164,8 +161,3 @@
     line-height: 21px;
 }
 
-@keyframes common-spin {
-    100% {
-        transform: rotate(360deg);
-    }
-}

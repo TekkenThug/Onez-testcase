@@ -1,13 +1,15 @@
 import ConverterWidget from "./components/converter-widget/ConverterWidget.tsx";
 
 import styles from "./App.module.css"
-import {useEffect} from "react";
+import {useEffect, useState} from "react";
 import {useDispatch, useSelector} from "react-redux";
 import {setCurrencies} from "@/stores/currency.ts";
-import {RootState} from "@/store.ts";
+import {RootState} from "@/stores";
+import Loader from "@/components/loader/Loader.tsx";
 
 function App() {
 	const currencies = useSelector((state: RootState) => state.currency.currencyList)
+	const [isLoading, setIsLoading] = useState(true)
 	const dispatch = useDispatch();
 	const getCurrentCurrencies = async () => {
 		try {
@@ -19,6 +21,7 @@ function App() {
 			}).then(res => res.json())
 
 			dispatch(setCurrencies(data))
+			setIsLoading(false)
 		} catch (e) {
 			console.warn(e);
 		}
@@ -38,7 +41,7 @@ function App() {
 				</p>
 			</div>
 
-			{ currencies.length > 0 && <ConverterWidget /> }
+			{ isLoading || currencies.length < 2  ? <Loader size={120} /> :  <ConverterWidget /> }
 		</div>
 	)
 }

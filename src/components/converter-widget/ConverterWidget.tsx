@@ -4,7 +4,7 @@ import { useSelector } from "react-redux";
 import { RootState } from "@/stores";
 import {useEffect, useState, useRef} from "react";
 import CurrencyFlag from "react-currency-flags";
-import Loader from "@/assets/svg/loader.svg";
+import Loader from "@/components/loader/Loader.tsx";
 import Dropdown from "@/components/converter-widget/dropdown/Dropdown.tsx";
 import ArrowDown from "@/assets/svg/arrow-down.svg";
 
@@ -164,11 +164,7 @@ const ConverterWidget = () => {
 
 						<div className={styles.inputWrapper}>
 							{isLoading ?
-								<img
-									src={Loader}
-									alt="loader"
-									className={styles.loader}
-								/>
+								<Loader size={25} className={styles.loader} />
 								:
 								<input
 									value={convertedValue}
