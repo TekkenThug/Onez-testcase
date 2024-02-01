@@ -5,17 +5,17 @@ export interface CurrencyState {
 }
 
 const initialState: CurrencyState = {
-	currencyList: [],
+    currencyList: [],
 };
 
 export const currencySlice = createSlice({
-	name: "currency",
-	initialState,
-	reducers: {
-		setCurrencies: (state, action) => {
-			state.currencyList = action.payload;
-		}
-	},
+    name: "currency",
+    initialState,
+    reducers: {
+        setCurrencies: (state, action) => {
+            state.currencyList = action.payload;
+        }
+    },
 });
 
 export const { setCurrencies } = currencySlice.actions;
